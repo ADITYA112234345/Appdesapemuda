@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kategori Produk UMKM (Mobile)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #8BC34A;
+            --bg-light: #f4f4f9;
+            --text-dark: #333;
+            --text-light: #fff;
+            --card-bg: #fff;
+            --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 15px 0;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-size: 1.5em;
+            color: var(--primary-color);
+        }
+
+        /* Banner Slider */
+        .banner-slider {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            width: 33.33%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-size: 1.2em;
+            font-weight: 600;
+            padding: 10px;
+        }
+
+        .slide:nth-child(1) {
+            background-image: url('https://source.unsplash.com/random/600x150/?crafts,local-market');
+        }
+
+        .slide:nth-child(2) {
+            background-image: url('https://source.unsplash.com/random/600x150/?food,handmade');
+        }
+
+        .slide:nth-child(3) {
+            background-image: url('https://source.unsplash.com/random/600x150/?fashion,boutique');
+        }
+
+        /* Category Section */
+        .category-section {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .category-section h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.3em;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Default 2 columns for mobile */
+            gap: 15px;
+            text-align: center;
+        }
+
+        .category-card {
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-icon {
+            font-size: 2.5em;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+        }
+
+        .category-card h3 {
+            font-size: 0.9em;
+            font-weight: 600;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Media Queries for larger screens (e.g., tablets & desktops) */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 900px;
+            }
+
+            .banner-slider {
+                height: 250px;
+            }
+
+            .slide {
+                font-size: 1.8em;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
+            }
+
+            .category-icon {
+                font-size: 3em;
+            }
+            
+            .category-card h3 {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Kategori Produk UMKM</h1>
+        </header>
+
+        <section class="banner-slider">
+            <div class="slides">
+                <div class="slide">Kerajinan Tangan Lokal</div>
+                <div class="slide">Kuliner Khas Nusantara</div>
+                <div class="slide">Fashion & Aksesoris</div>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2>Pilih Kategori Produk</h2>
+            <div class="category-grid">
+                <a href="#" class="category-card">
+                    <i class="fas fa-utensils category-icon"></i>
+                    <h3>Makanan & Minuman</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-hammer category-icon"></i>
+                    <h3>Kerajinan Tangan</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-tshirt category-icon"></i>
+                    <h3>Fashion</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-seedling category-icon"></i>
+                    <h3>Pertanian</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-spa category-icon"></i>
+                    <h3>Kecantikan</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-couch category-icon"></i>
+                    <h3>Rumah Tangga</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-mobile-alt category-icon"></i>
+                    <h3>Elektronik</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-tools category-icon"></i>
+                    <h3>Jasa</h3>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slide').length;
+            let currentSlide = 0;
+
+            function nextSlide() {
+                currentSlide++;
+                if (currentSlide >= totalSlides) {
+                    currentSlide = 0;
+                }
+                slides.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
+            }
+
+            setInterval(nextSlide, 5000); // Ganti slide setiap 5 detik
+        });
+    </script>
+
+</body>
+</html>

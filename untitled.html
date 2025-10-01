@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Aplikasi Desa Digital — Sumber Jaya</title>
+<style>
+  :root{
+    --primary:#2e7d32;
+    --primary-light:#4caf50;
+    --bg:#f4f6f8;
+    --card:#ffffff;
+    --muted:#6b6b6b;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background:var(--bg);
+    color:#111;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  header{
+    background: linear-gradient(135deg,var(--primary),var(--primary-light));
+    color:#fff;
+    padding:18px 16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.12);
+  }
+  header .brand {
+    display:flex;
+    gap:12px;
+    align-items:center;
+    font-weight:700;
+    font-size:18px;
+  }
+  header .logo {
+    width:44px;
+    height:44px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+  }
+
+  /* Marquee (slide berjalan) */
+  .marquee-wrap{
+    max-width:1000px;
+    margin:16px auto;
+    overflow:hidden;
+    background:linear-gradient(90deg, rgba(255,255,255,0.75), rgba(255,255,255,0.9));
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    padding:8px 12px;
+    border:1px solid rgba(0,0,0,0.04);
+  }
+  .marquee{
+    display:flex;
+    gap:48px;
+    align-items:center;
+    white-space:nowrap;
+    will-change:transform;
+    animation: scroll-left 16s linear infinite;
+    font-weight:600;
+    color:var(--primary);
+    font-size:16px;
+  }
+  @keyframes scroll-left{
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  /* Pause animation on hover for accessibility */
+  .marquee-wrap:hover .marquee,
+  .marquee-wrap:focus-within .marquee {
+    animation-play-state: paused;
+  }
+
+  /* Main menu grid */
+  .menu {
+    max-width:1000px;
+    margin:18px auto;
+    padding:12px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap:18px;
+  }
+  .card{
+    background:var(--card);
+    border-radius:12px;
+    padding:18px;
+    text-align:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    transition: transform .25s ease, box-shadow .25s ease;
+    cursor:pointer;
+    border:1px solid rgba(0,0,0,0.03);
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.10);
+  }
+  .card img{ width:56px; height:56px; margin-bottom:12px; }
+  .card p{ margin:0; font-weight:700; color:#0b3b18; }
+
+  /* Footer */
+  footer{
+    max-width:1000px;
+    margin:20px auto;
+    padding:12px;
+    text-align:center;
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width:420px){
+    header{ padding:12px; }
+    header .brand { font-size:16px; }
+    .marquee { font-size:14px; gap:28px; }
+    .card img{ width:48px; height:48px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" aria-hidden="true">🌾</div>
+  <div class="brand">
+    <div>
+      <div style="font-size:14px;opacity:.9">Aplikasi Desa</div>
+      <div style="font-size:16px">Sumber Jaya</div>
+    </div>
+  </div>
+</header>
+
+<!-- Marquee slide berjalan -->
+<div class="marquee-wrap" role="region" aria-label="Pengumuman slide">
+  <div class="marquee" id="marquee">
+    <!-- Konten akan diisi oleh JS -->
+  </div>
+</div>
+
+<!-- Menu utama -->
+<main class="menu" role="main" aria-label="Menu Utama">
+  <div class="card" onclick="openPage('surat')" role="button" tabindex="0">
+    <img src="https://img.icons8.com/fluency/96/document.png" alt="Surat Online">
+    <p>Surat Online</p>
+  </div>
+
+  <div class="card" onclick="openPage('berita')" role="button" tabindex="0">
+    <img src="https://img.icons8.com/fluency/96/news.png" alt="Berita Lokal">
+    <p>Berita Lokal</p>
+  </div>
+
+  <div class="card" onclick="openPage('agenda')" role="button" tabindex="0">
+    <img src="https://img.icons8.com/fluency/96/calendar.png" alt="Agenda Kegiatan">
+    <p>Agenda Kegiatan</p>
+  </div>
+
+  <div class="card" onclick="openPage('peta')" role="button" tabindex="0">
+    <img src="https://img.icons8.com/fluency/96/map.png" alt="Peta Desa">
+    <p>Peta Desa</p>
+  </div>
+
+  <div class="card" onclick="openPage('umkm')" role="button" tabindex="0">
+    <img src="https://img.icons8.com/fluency/96/shop.png" alt="Produk UMKM">
+    <p>Produk UMKM</p>
+  </div>
+
+  <div class="card" onclick="openPage('pelatihan')" role="button" tabindex="0">
+    <img src="https://img.icons8.com/fluency/96/classroom.png" alt="Pelatihan PDK">
+    <p>Pelatihan PDK</p>
+  </div>
+</main>
+
+<footer>
+  © 2025 Desa Sumber Jaya — Frontend siap dihubungkan ke backend. Untuk ubah teks slide, edit <code>messages</code> di script atau sambungkan ke endpoint API.
+</footer>
+
+<script>
+  // === Konfigurasi teks marquee (slide berjalan) ===
+  // Ubah langsung di sini atau aktifkan fetch ke backend.
+  const messages = [
+    "Selamat datang di Aplikasi Desa Sumber Jaya",
+    "Rencana: data akan dikategorikan per-desa (multi-desa)",
+    "Backend sudah disiapkan — tinggal sesuaikan endpoint untuk sinkronisasi data"
+  ];
+
+  // Jika mau mengambil pesan dari backend, uncomment contoh fetch di bawah
+  // fetch('/api/marquee')
+  //   .then(r => r.json())
+  //   .then(data => {
+  //     // asumsikan data.messages adalah array string
+  //     if(Array.isArray(data.messages)) renderMarquee(data.messages);
+  //   })
+  //   .catch(err => { console.warn('Gagal ambil marquee dari backend, pakai default', err); renderMarquee(messages); });
+
+  function renderMarquee(msgs){
+    // Duplicate pesan agar animasi terasa kontinu
+    const container = document.getElementById('marquee');
+    container.innerHTML = ''; // kosongkan dulu
+    // gabungkan pesan dengan separator dot
+    const joined = msgs.map(m => `• ${m} •`).join('   ');
+    // buat dua kali agar loop lebih halus
+    container.textContent = joined + "   " + joined;
+  }
+
+  renderMarquee(messages);
+
+  // === Fungsi placeholder membuka halaman / integrasi ke backend ===
+  function openPage(key){
+    // Saat integrasi backend, redirect ke route atau buka modal
+    // contoh: window.location.href = `/app/${key}` atau fetch data lalu render
+    console.log('Minta buka:', key);
+    // Untuk sekarang tampilkan notifikasi ringan
+    alert({
+      surat: 'Surat Online — buka form pengajuan',
+      berita: 'Berita Lokal — buka daftar berita',
+      agenda: 'Agenda Kegiatan — buka kalender',
+      peta: 'Peta Desa — buka peta interaktif',
+      umkm: 'Produk UMKM — buka katalog produk',
+      pelatihan: 'Pelatihan PDK — buka daftar pelatihan & pendaftaran'
+    }[key] || 'Membuka ' + key);
+  }
+
+  // keyboard accessibility: tekan enter saat fokus di card
+  document.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('keydown', e=>{
+      if(e.key === 'Enter' || e.key === ' ') {
+        card.click();
+        e.preventDefault();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

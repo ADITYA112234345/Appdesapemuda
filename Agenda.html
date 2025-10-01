@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Desa Kita</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-color: #4CAF50; /* Hijau */
+            --secondary-color: #FFC107; /* Kuning */
+            --background-color: #f0f2f5;
+            --card-background: #ffffff;
+            --text-color: #333;
+            --light-text-color: #666;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--light-text-color);
+            font-size: 1.1em;
+        }
+
+        .agenda-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .agenda-card {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .agenda-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .agenda-date {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .agenda-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .agenda-card p {
+            margin-bottom: 8px;
+            color: var(--light-text-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .agenda-card p strong {
+            color: var(--text-color);
+            margin-right: 5px;
+        }
+
+        .agenda-card .icon {
+            font-size: 1.2em;
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+
+        /* Ikon sederhana dari karakter Unicode */
+        .icon.time::before { content: '⏱️'; }
+        .icon.location::before { content: '📍'; }
+
+        .tag {
+            background-color: var(--secondary-color);
+            color: #333;
+            font-size: 0.8em;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            position: absolute;
+            top: 25px;
+            right: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Agenda Desa Sejahtera</h1>
+            <p>Informasi kegiatan dan acara terkini untuk seluruh warga.</p>
+        </div>
+
+        <div class="agenda-grid">
+            <div class="agenda-card">
+                <span class="tag">Wajib Hadir</span>
+                <span class="agenda-date">20 Oktober 2025</span>
+                <h3>Musyawarah Pembangunan Desa</h3>
+                <p><span class="icon time"></span><strong>Waktu:</strong> 09:00 - 12:00 WIB</p>
+                <p><span class="icon location"></span><strong>Lokasi:</strong> Balai Desa Sejahtera</p>
+                <p>Diskusi dan perencanaan program pembangunan desa untuk tahun depan.</p>
+            </div>
+
+            <div class="agenda-card">
+                <span class="tag">Umum</span>
+                <span class="agenda-date">25 Oktober 2025</span>
+                <h3>Kerja Bakti Massal</h3>
+                <p><span class="icon time"></span><strong>Waktu:</strong> 07:30 - 10:00 WIB</p>
+                <p><span class="icon location"></span><strong>Lokasi:</strong> Sepanjang Jalan Utama Desa</p>
+                <p>Membersihkan selokan dan lingkungan sekitar untuk mencegah banjir.</p>
+            </div>
+
+            <div class="agenda-card">
+                <span class="tag">Hiburan</span>
+                <span class="agenda-date">28 Oktober 2025</span>
+                <h3>Malam Kesenian Desa</h3>
+                <p><span class="icon time"></span><strong>Waktu:</strong> 19:30 - Selesai</p>
+                <p><span class="icon location"></span><strong>Lokasi:</strong> Lapangan Serbaguna Desa</p>
+                <p>Menampilkan berbagai pertunjukan seni dari sanggar tari dan musik lokal.</p>
+            </div>
+
+            <div class="agenda-card">
+                <span class="tag">Penting</span>
+                <span class="agenda-date">05 November 2025</span>
+                <h3>Sosialisasi Program Ketahanan Pangan</h3>
+                <p><span class="icon time"></span><strong>Waktu:</strong> 10:00 - 11:30 WIB</p>
+                <p><span class="icon location"></span><strong>Lokasi:</strong> Aula Kantor Kelurahan</p>
+                <p>Penjelasan tentang program baru untuk meningkatkan ketahanan pangan mandiri.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
